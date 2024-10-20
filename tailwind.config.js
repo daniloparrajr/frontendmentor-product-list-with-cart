@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     colors: {
@@ -25,15 +24,16 @@ module.exports = {
       xl: ["2.5rem", "1.20"],
     },
     spacing: {
-      "50": "0.25rem",
-      "100": "0.5rem",
-      "150": "0.75rem",
-      "200": "1rem",
-      "300": "1.5rem",
-      "400": "2rem",
-      "500": "2.5rem",
-      "1100": "5.5rem",
-    }
+      "50": "4px",
+      "100": "8px",
+      "150": "12px",
+      "200": "16px",
+      "300": "24px",
+      "400": "32px",
+      "500": "40px",
+      "1100": "88px",
+      "9000": "76rem",
+    },
   },
   extend: {
     fontFamily: {
