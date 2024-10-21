@@ -4,13 +4,13 @@ import "./globals.css";
 const redHatText = localFont({
     src: [
         {
-            path: "../../public/fonts/RedHatText-SemiBold.woff",
+            path: "../../public/fonts/RedHatText-Bold.woff",
             weight: "800",
             style: "normal",
         },
         {
-            path: "../../public/fonts/RedHatText-Bold.woff",
-            weight: "700",
+            path: "../../public/fonts/RedHatText-SemiBold.woff",
+            weight: "600",
             style: "normal",
         },
         {
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${redHatText.variable} antialiased font-sans text-rose-900 text-base`}
+        className={`${redHatText.variable} antialiased font-sans text-rose-900 bg-rose-50 text-base`}
       >
         {children}
       </body>

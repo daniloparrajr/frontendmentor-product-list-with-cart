@@ -34,10 +34,13 @@ module.exports = {
       "1100": "88px",
       "9000": "76rem",
     },
-  },
-  extend: {
-    fontFamily: {
-      sans: ['var(--font-red-hat-text)'],
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-red-hat-text)'],
+      },
+      gridTemplateColumns: {
+        'content-sidebar': '800px 1fr',
+      }
     },
   },
   plugins: [],
