@@ -4,7 +4,7 @@ export default function ProductList({products = []}) {
   return (
     <>
       {products.length > 0 && (
-        <ul className="grid gap-x-300 gap-y-400 grid-cols-3">
+        <ul className="grid gap-x-300 gap-y-400 sm:grid-cols-2 md:grid-cols-3">
           {products.map(product => (
             <li key={product.name}>
               <ProductListItem
