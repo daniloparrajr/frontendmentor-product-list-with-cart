@@ -5,7 +5,7 @@ import IncrementQuantityIcon from "/public/images/icon-increment-quantity.svg";
 
 export default function AddToCartButton({classes, onClick, onDecrement, onIncrement, quantity}) {
   let buttonCommonClasses = `${classes} mb-150 -mt-300 relative z-10 transition-colors`;
-  let buttonActiveClasses = `${buttonCommonClasses} max-w-[160px] w-full bg-red text-white border-red mx-auto flex items-center justify-between font-semibold p-150 rounded-full bg-white border`;
+  let buttonActiveClasses = `${buttonCommonClasses} max-w-[160px] w-full bg-red text-white border-red mx-auto flex items-center justify-between font-semibold p-150 rounded-full border`;
   let buttonDefaultClasses = `${buttonCommonClasses} gap-100 bg-white hover:border-red hover:text-red`;
   return (
     <>
