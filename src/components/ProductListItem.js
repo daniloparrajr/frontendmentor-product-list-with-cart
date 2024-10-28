@@ -5,11 +5,44 @@ import {useState} from 'react';
 import ProductImage from "./ProductImage";
 import AddToCartButton from "@/components/AddToCartButton";
 
-export default function ProductListItem({name, category, price, image}) {
+export default function ProductListItem({name, category, price, image, id, cartProducts, setCartProducts}) {
   const [quantity, setQuantity] = useState(0);
 
   function handleAddToCart() {
-    setQuantity(quantity + 1);
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+
+    const product = {
+      quantity: newQuantity,
+      name,
+      price,
+    };
+
+    const newCartProducts = {...cartProducts};
+    newCartProducts[id] = product;
+    setCartProducts(newCartProducts);
+  }
+
+  function handleIncreaseQuantity() {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+
+    const newCartProducts = {...cartProducts};
+    newCartProducts[id]["quantity"] = newQuantity;
+    setCartProducts(newCartProducts);
+  }
+  function handleDecreaseQuantity() {
+    const newQuantity = quantity - 1;
+    setQuantity(newQuantity);
+
+    const newCartProducts = {...cartProducts};
+    if (newQuantity === 0) {
+      delete newCartProducts[id];
+    } else {
+      newCartProducts[id]["quantity"] = newQuantity;
+    }
+
+    setCartProducts(newCartProducts);
   }
 
   return (
@@ -18,8 +51,8 @@ export default function ProductListItem({name, category, price, image}) {
       <AddToCartButton
         quantity={quantity}
         onClick={handleAddToCart}
-        onIncrement={()=> setQuantity(quantity + 1)}
-        onDecrement={() => setQuantity(quantity - 1)}
+        onIncrement={handleIncreaseQuantity}
+        onDecrement={handleDecreaseQuantity}
         classes="mx-auto"
       />
       <p className="text-sm text-rose-500 mb-50">{category}</p>
