@@ -1,21 +1,16 @@
 'use client';
 
-import {useState} from 'react';
-
 import ProductImage from "./ProductImage";
 import AddToCartButton from "@/components/AddToCartButton";
+import {formatCurrency} from "@/utils/format";
 
 export default function ProductListItem({name, category, price, image, id, cartProducts, setCartProducts}) {
-  const [quantity, setQuantity] = useState(0);
-
   function handleAddToCart() {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-
     const product = {
-      quantity: newQuantity,
+      quantity: 1,
       name,
       price,
+      thumbnail: image.thumbnail,
     };
 
     const newCartProducts = {...cartProducts};
@@ -24,22 +19,18 @@ export default function ProductListItem({name, category, price, image, id, cartP
   }
 
   function handleIncreaseQuantity() {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-
     const newCartProducts = {...cartProducts};
-    newCartProducts[id]["quantity"] = newQuantity;
+    newCartProducts[id]["quantity"] = newCartProducts[id]["quantity"] + 1;
     setCartProducts(newCartProducts);
   }
   function handleDecreaseQuantity() {
-    const newQuantity = quantity - 1;
-    setQuantity(newQuantity);
-
     const newCartProducts = {...cartProducts};
+    const newQuantity = newCartProducts[id]["quantity"] - 1;
+
     if (newQuantity === 0) {
       delete newCartProducts[id];
     } else {
-      newCartProducts[id]["quantity"] = newQuantity;
+      newCartProducts[id].quantity = newQuantity;
     }
 
     setCartProducts(newCartProducts);
@@ -49,7 +40,7 @@ export default function ProductListItem({name, category, price, image, id, cartP
     <div>
       <ProductImage image={image} alt={name} />
       <AddToCartButton
-        quantity={quantity}
+        quantity={cartProducts[id]?.quantity}
         onClick={handleAddToCart}
         onIncrement={handleIncreaseQuantity}
         onDecrement={handleDecreaseQuantity}
@@ -57,7 +48,7 @@ export default function ProductListItem({name, category, price, image, id, cartP
       />
       <p className="text-sm text-rose-500 mb-50">{category}</p>
       <h3 className="text-base mb-50">{name}</h3>
-      <p className="text-red">${price}</p>
+      <p className="text-red font-semibold">${formatCurrency(price)}</p>
     </div>
   )
 }

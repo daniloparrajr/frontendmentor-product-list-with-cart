@@ -20,7 +20,7 @@ export default function Home() {
         />
       </main>
       <aside>
-        <Cart products={cartProducts}/>
+        <Cart products={cartProducts} setCartProducts={setCartProducts} />
       </aside>
     </div>
   );
