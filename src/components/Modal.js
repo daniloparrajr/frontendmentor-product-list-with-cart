@@ -25,7 +25,7 @@ export default function Modal({ products, setModalOpen, setCartProducts }) {
         <div onClick={handleModalOverlayClick} data-modal-overlay="true" className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div
             className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-            <div className="bg-white p-400">
+            <div className="bg-white p-300 pt-400 md:p-400">
               <OrderConfirmedIcon className="mb-300" />
               <h2 className="font-bold text-xl mb-100">Order Confirmed</h2>
               <p className="text-rose-500 mb-400">We hope you enjoy your food!</p>

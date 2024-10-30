@@ -11,7 +11,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="grid xl:grid-cols-content-sidebar gap-400 max-w-9000 mx-auto py-1100 px-500 xl:px-0">
+    <div className="grid xl:grid-cols-content-sidebar gap-400 max-w-9000 mx-auto p-300 md:py-1100 md:px-500 xl:px-0">
       <main>
         <h1 className="sr-only">Frontend Mentor | Product list with cart</h1>
         <h2 className="font-bold text-xl mb-400">Desserts</h2>
