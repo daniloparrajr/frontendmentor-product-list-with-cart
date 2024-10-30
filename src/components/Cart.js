@@ -42,9 +42,10 @@ export default function Cart({products, setCartProducts, setModalOpen}) {
                 </div>
                 <button
                   onClick={() => removeCartItem(productId)}
-                  className="border border-rose-400 rounded-full w-[20px] h-[20px] flex items-center justify-center"
+                  className="hover:text-rose-900 hover:border-rose-900 text-rose-400 transition-colors border border-rose-400 rounded-full w-[20px] h-[20px] flex items-center justify-center"
                 >
                   <RemoveItemIcon/>
+                  <span className="sr-only">Remove product on cart</span>
                 </button>
               </li>
             ))}
