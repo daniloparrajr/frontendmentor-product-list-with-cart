@@ -53,7 +53,7 @@ export default function ProductListItem({name, category, price, image, id, cartP
         classes="mx-auto"
       />
       <p className="text-sm text-rose-500 mb-50">{category}</p>
-      <h3 className="text-base mb-50">{name}</h3>
+      <h3 className="text-base mb-50 font-semibold">{name}</h3>
       <p className="text-red font-semibold">${formatCurrency(price)}</p>
     </div>
   )
