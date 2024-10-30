@@ -1,6 +1,6 @@
 import { getImageProps } from 'next/image'
 
-export default function ProductImage({image, alt= ""}) {
+export default function ProductImage({image, alt= "", classes}) {
   const common = { alt, sizes: '100vw' }
 
   const {
@@ -38,7 +38,7 @@ export default function ProductImage({image, alt= ""}) {
       <source media="(min-width: 1000px)" srcSet={desktop} />
       <source media="(min-width: 768px)" srcSet={tablet} />
       <source media="(min-width: 500px)" srcSet={mobile} />
-      <img className="rounded-lg" {...rest} style={{ width: '100%', height: 'auto' }} />
+      <img className={`${classes} transition-colors border-2 rounded-lg`} {...rest} style={{ width: '100%', height: 'auto' }} />
     </picture>
   )
 }

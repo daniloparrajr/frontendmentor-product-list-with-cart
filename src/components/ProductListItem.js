@@ -36,9 +36,15 @@ export default function ProductListItem({name, category, price, image, id, cartP
     setCartProducts(newCartProducts);
   }
 
+  let productIsActive = false;
+
+  if (cartProducts[id]) {
+    productIsActive = true;
+  }
+
   return (
     <div>
-      <ProductImage image={image} alt={name} />
+      <ProductImage classes={productIsActive ? 'border-red' : 'border-rose-50'} image={image} alt={name} />
       <AddToCartButton
         quantity={cartProducts[id]?.quantity}
         onClick={handleAddToCart}
