@@ -3,7 +3,7 @@ import RemoveItemIcon from "/public/images/icon-remove-item.svg";
 import CarbonNeutralIcon from "/public/images/icon-carbon-neutral.svg";
 import {formatCurrency} from "@/utils/format";
 
-export default function Cart({products, setCartProducts}) {
+export default function Cart({products, setCartProducts, setModalOpen}) {
   const productsCount = Object.keys(products).length;
 
   function removeCartItem(productId) {
@@ -56,7 +56,7 @@ export default function Cart({products, setCartProducts}) {
             <CarbonNeutralIcon />
             <span>This is a <strong className="font-semibold">carbon-neutral</strong> delivery</span>
           </p>
-          <button className="p-200 rounded-full bg-red text-white font-semibold">Confirm Order</button>
+          <button onClick={() => setModalOpen(true)} className="p-200 rounded-full bg-red text-white font-semibold">Confirm Order</button>
         </div>
       )}
     </div>

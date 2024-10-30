@@ -4,9 +4,11 @@ import ProductList from "@/components/ProductList";
 import Cart from "@/components/Cart";
 import products from "./data.json";
 import {useState} from "react";
+import Modal from "@/components/Modal";
 
 export default function Home() {
   const [cartProducts, setCartProducts] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="grid xl:grid-cols-content-sidebar gap-400 max-w-9000 mx-auto py-1100 px-500 xl:px-0">
@@ -20,8 +22,9 @@ export default function Home() {
         />
       </main>
       <aside>
-        <Cart products={cartProducts} setCartProducts={setCartProducts} />
+        <Cart products={cartProducts} setCartProducts={setCartProducts} setModalOpen={setModalOpen} />
       </aside>
+      {modalOpen && <Modal products={cartProducts} setCartProducts={setCartProducts} setModalOpen={setModalOpen} />}
     </div>
   );
 }
