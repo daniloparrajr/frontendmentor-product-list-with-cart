@@ -14,14 +14,14 @@ export default function AddToCartButton({classes, onClick, onDecrement, onIncrem
           <div
             className={`${buttonActiveClasses}`}>
             <button
-              className="border border-white flex items-center justify-center rounded-full bg-transparent w-[20px] h-[20px]"
+              className="hover:bg-white hover:text-red transition-colors border border-white flex items-center justify-center rounded-full bg-transparent w-[20px] h-[20px]"
               onClick={onDecrement}>
               <DecrementQuantityIcon/>
               <span className="sr-only">Decrease product quantity</span>
             </button>
             {quantity}
             <button
-              className="border border-white flex items-center justify-center rounded-full bg-transparent w-[20px] h-[20px]"
+              className="hover:bg-white hover:text-red transition-colors border border-white flex items-center justify-center rounded-full bg-transparent w-[20px] h-[20px]"
               onClick={onIncrement}>
               <IncrementQuantityIcon/>
               <span className="sr-only">Add product quantity</span>
