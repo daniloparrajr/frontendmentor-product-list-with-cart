@@ -2,7 +2,7 @@ import {formatCurrency} from "@/utils/format";
 import Image from "next/image";
 
 import OrderConfirmedIcon from "/public/images/icon-order-confirmed.svg";
-
+import Button from "@/components/Button";
 export default function Modal({ products, setModalOpen, setCartProducts }) {
   const total = Object.keys(products).reduce((total, key) => total + (products[key].quantity * products[key].price), 0);
 
@@ -61,7 +61,7 @@ export default function Modal({ products, setModalOpen, setCartProducts }) {
                   <p className="text-lg font-bold">${formatCurrency(total)}</p>
                 </div>
               </div>
-              <button className="text-white bg-red rounded-full font-semibold p-200 w-full" onClick={handleNewOrder}>Start New Order</button>
+              <Button type="primary" classes="w-full" onClick={handleNewOrder}>Start New Order</Button>
             </div>
           </div>
         </div>

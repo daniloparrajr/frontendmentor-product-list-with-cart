@@ -27,7 +27,6 @@ export default function AddToCartButton({classes, onClick, onDecrement, onIncrem
               <span className="sr-only">Add product quantity</span>
             </button>
           </div>
-
         )
         : <Button onClick={onClick} classes={buttonDefaultClasses}><CartIcon/> Add to Cart</Button>
       }
