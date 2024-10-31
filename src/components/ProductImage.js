@@ -1,44 +1,42 @@
 import { getImageProps } from 'next/image'
 
 export default function ProductImage({image, alt= "", classes}) {
-  const common = { alt, sizes: '100vw' }
-
   const {
-    props: { srcSet: desktop },
+    props: { srcSet: desktop, sizes: desktopSizes },
   } = getImageProps({
-    ...common,
     width: 502,
     height: 480,
     quality: 80,
     src: image.desktop,
+    sizes: "25vw"
   });
 
   const {
-    props: { srcSet: tablet },
+    props: { srcSet: tablet, sizes: tabletSizes },
   } = getImageProps({
-    ...common,
     width: 427,
     height: 424,
     quality: 70,
     src: image.tablet,
+    sizes: "33.33333vw"
   });
 
   const {
-    props: { srcSet: mobile, ...rest },
+    props: { srcSet: mobile, sizes: mobileSizes, ...rest },
   } = getImageProps({
-    ...common,
     width: 654,
     height: 424,
     quality: 70,
     src: image.mobile,
+    sizes: "100vw"
   });
 
   return (
     <picture>
-      <source media="(min-width: 1000px)" srcSet={desktop} />
-      <source media="(min-width: 768px)" srcSet={tablet} />
-      <source media="(min-width: 500px)" srcSet={mobile} />
-      <img sizes="(min-width: 768px) 427px,(min-width: 1000px) 480px," className={`${classes} transition-colors border-2 rounded-lg`} {...rest} />
+      <source media="(min-width: 1080px)" srcSet={desktop} sizes={desktopSizes} />
+      <source media="(min-width: 768px)" srcSet={tablet} sizes={tabletSizes} />
+      <source srcSet={mobile} />
+      <img className={`${classes} transition-colors border-2 rounded-lg`} {...rest} alt={alt} />
     </picture>
   )
 }
