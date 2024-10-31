@@ -7,8 +7,8 @@ export default function ProductImage({image, alt= "", classes}) {
     props: { srcSet: desktop },
   } = getImageProps({
     ...common,
-    width: 1440,
-    height: 875,
+    width: 502,
+    height: 480,
     quality: 80,
     src: image.desktop,
   });
@@ -17,8 +17,8 @@ export default function ProductImage({image, alt= "", classes}) {
     props: { srcSet: tablet },
   } = getImageProps({
     ...common,
-    width: 750,
-    height: 1334,
+    width: 427,
+    height: 424,
     quality: 70,
     src: image.tablet,
   });
@@ -27,8 +27,8 @@ export default function ProductImage({image, alt= "", classes}) {
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
-    width: 750,
-    height: 1334,
+    width: 654,
+    height: 424,
     quality: 70,
     src: image.mobile,
   });
@@ -38,7 +38,7 @@ export default function ProductImage({image, alt= "", classes}) {
       <source media="(min-width: 1000px)" srcSet={desktop} />
       <source media="(min-width: 768px)" srcSet={tablet} />
       <source media="(min-width: 500px)" srcSet={mobile} />
-      <img className={`${classes} transition-colors border-2 rounded-lg`} {...rest} style={{ width: '100%', height: 'auto' }} />
+      <img sizes="(min-width: 768px) 427px,(min-width: 1000px) 480px," className={`${classes} transition-colors border-2 rounded-lg`} {...rest} />
     </picture>
   )
 }
