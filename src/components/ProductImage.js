@@ -35,7 +35,7 @@ export default function ProductImage({image, alt= "", classes}) {
     <picture>
       <source media="(min-width: 1080px)" srcSet={desktop} sizes={desktopSizes} />
       <source media="(min-width: 768px)" srcSet={tablet} sizes={tabletSizes} />
-      <source srcSet={mobile} />
+      <source srcSet={mobile} sizes={mobileSizes} />
       <img className={`${classes} transition-colors border-2 rounded-lg`} {...rest} alt={alt} />
     </picture>
   )
